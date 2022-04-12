@@ -13,13 +13,13 @@
 
 # to do: change from post_created to topic_created
 after_initialize do
-  DiscourseEvent.on(:topic_created) do |topic, _, _|
+  DiscourseEvent.on(:topic_created) do |topic, _, user|
     next if SiteSetting.test_tag.blank?
     #next if user.staff?
     next if topic.private_message?
 
-    # username = topic.user.user_fields.name
-    username = "testing-username-tag"
+    username = user.user_fields.name
+    #username = "testing-username-tag"
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
   tag = Tag.find_or_create_by!(name: username)
