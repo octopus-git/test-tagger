@@ -26,16 +26,16 @@ after_initialize do
 
   username = "starting-test"
 
-  if user = nil
+  if user == nil
     username = "user-is-nil"
   else
     username = "user-is-not-nil"
 
-    if user.custom_fields is nil
+    if user.custom_fields == nil
       username = "custom-fields-is-nil"
     else "custom-fields-not-nil"
     end
-    
+
   end # end if user is nil
 
     #username = user.user_fields.name
