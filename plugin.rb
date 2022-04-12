@@ -18,8 +18,23 @@ after_initialize do
     #next if user.staff?
     next if topic.private_message?
 
-    username = user.user_fields.name
+
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# add sexual orientation tag
+
+  username = "starting-test"
+
+  if user = nil
+    username = "user-is-nil"
+  else
+    username = "user-is-not-nil"
+  end
+
+    #username = user.user_fields.name
     #username = "testing-username-tag"
+    # username = user.custom_fields['sexual_orientation']
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
   tag = Tag.find_or_create_by!(name: username)
@@ -33,5 +48,21 @@ after_initialize do
         topic.save
       end
     end
-  end
-end
+
+    # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # add sex tag
+
+
+    # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # add transition history tag
+
+
+    # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # add generaiton tag
+
+
+  end # end on(topic_created)
+end # end after_initialize
