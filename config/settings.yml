@@ -1,0 +1,5 @@
+plugins:
+  test_tag:
+    default: 'test'
+    client: true
+    hidden: true
