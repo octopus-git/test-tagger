@@ -28,7 +28,11 @@ after_initialize do
 
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
-    else "custom-fields-not-nil"
+    else
+      if user.custom_fields['sexual_orientation'] == nil
+        username = "sexual-orientation-is-nil"
+      else
+        username = "sexual-orientation-not-nil"
     end
 
     #username = user.user_fields.name
