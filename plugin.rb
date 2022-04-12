@@ -18,7 +18,10 @@ after_initialize do
     #next if user.staff?
     next if topic.private_message?
 
-    tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
+    username = topic.user.user_fields.name
+
+  #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
+  tag = Tag.find_or_create_by!(name: username)
 
     ActiveRecord::Base.transaction do
       #topic = post.topic
