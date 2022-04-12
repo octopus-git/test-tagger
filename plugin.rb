@@ -33,6 +33,7 @@ after_initialize do
         username = "sexual-orientation-is-nil"
       else
         username = "sexual-orientation-not-nil"
+      end
     end
 
     #username = user.user_fields.name
