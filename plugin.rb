@@ -18,7 +18,8 @@ after_initialize do
     #next if user.staff?
     next if topic.private_message?
 
-    username = topic.user.user_fields.name
+    # username = topic.user.user_fields.name
+    username = "testing-username-tag"
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
   tag = Tag.find_or_create_by!(name: username)
