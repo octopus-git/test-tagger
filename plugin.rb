@@ -30,7 +30,13 @@ after_initialize do
     username = "user-is-nil"
   else
     username = "user-is-not-nil"
-  end
+
+    if user.custom_fields is nil
+      username = "custom-fields-is-nil"
+    else "custom-fields-not-nil"
+    end
+    
+  end # end if user is nil
 
     #username = user.user_fields.name
     #username = "testing-username-tag"
