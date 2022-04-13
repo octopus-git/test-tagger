@@ -26,7 +26,27 @@ after_initialize do
 # ----------------------------------------------------------------------
 # add sexual orientation tag
 
-    username = "start---"
+    username = "start-"
+
+    user_field = UserField.find_by_name("Sex")
+
+    if user_field == nil
+      username = username + "userfield-is-nil-"
+    else
+
+      if user_field.name == nil
+        username = username + "userfield-name-is-nil-"
+      else
+        username = username + "userfield-name-is-" + user_field.name
+      end
+
+      if user_field.id == nil
+        username = username + "userfield-id-is-nil-"
+      else
+        username = username + "userfield-id-is-" + user_field.id
+      end
+
+    end
 
 =begin
     if user.custom_fields == nil
