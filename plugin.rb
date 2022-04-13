@@ -46,9 +46,14 @@ after_initialize do
       else
         username = username + "userfield-id-not-nil-"
         username = username + "userfield-id-is-" + user_field.id.to_s
+
+        custom_field_name = "user_field_" + user_field.id.to_s
+
+        tag_text = user.custom_fields[custom_field_name]
       end
 
     end
+
 
 =begin
     if user.custom_fields == nil
@@ -86,15 +91,15 @@ after_initialize do
     end # end four nil checks
 =end
 
-    username = username.downcase
-    username = username.sub(" ","xxxx")
+    tag_text = tag_text.downcase
+    tag_text = tag_text.sub(" ","-")
 
     #username = user.user_fields.name
     #username = "testing-username-tag"
     # username = user.custom_fields['sexual_orientation']
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
-    tag = Tag.find_or_create_by!(name: username)
+    tag = Tag.find_or_create_by!(name: tag_text)
 
     ActiveRecord::Base.transaction do
       #topic = post.topic
