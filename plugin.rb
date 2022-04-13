@@ -30,6 +30,7 @@ after_initialize do
 
     user_field = UserField.find_by_name("Sex")
 
+=begin
     if user_field == nil
       username = username + "userfield-is-nil-"
     else
@@ -47,6 +48,7 @@ after_initialize do
       end
 
     end
+=end
 
 =begin
     if user.custom_fields == nil
