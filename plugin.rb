@@ -26,7 +26,7 @@ after_initialize do
 # ----------------------------------------------------------------------
 # add sexual orientation tag
 
-  username = "start---"
+    username = "start---"
 
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
@@ -41,15 +41,17 @@ after_initialize do
             username = "first-key-is-nil"
           else
 
+            username = "passed-nil-checks"
+
             #username.concat(user.custom_fields.keys.length.to_s)
-            username.concat("--keys--")
+            #username.concat("--keys--")
 
             #user.custom_fields.keys.each do |item|
             #  username.concat(item)
             #  username.concat("---")
             #end
 
-            username.concat("--values--")
+            #username.concat("--values--")
 
             #user.custom_fields.values.each do |item|
             #  username.concat(item)
@@ -59,7 +61,7 @@ after_initialize do
           end
         end
       end
-    end
+    end # end four nil checks
 
     username = username.downcase
     username = username.sub(" ","xxxx")
@@ -69,7 +71,7 @@ after_initialize do
     # username = user.custom_fields['sexual_orientation']
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
-  tag = Tag.find_or_create_by!(name: "placeholder-tag")
+    tag = Tag.find_or_create_by!(name: "placeholder-tag")
 
     ActiveRecord::Base.transaction do
       #topic = post.topic
@@ -79,7 +81,7 @@ after_initialize do
         topic.tags << tag
         topic.save
       end
-    end
+    end # end ActiveRecord::Base.transaction do
 
     #post_string = "poststring: "
     #topic.title = post_string
