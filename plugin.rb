@@ -26,47 +26,54 @@ after_initialize do
 # ----------------------------------------------------------------------
 # add tags for demographic fields.
 
-    logging = "start-"
+    #demographicFields = ["Sex", "Sexual Orientation", "Transition History", "Generation"]
+    demographicFields = ["Sex"]
 
-    user_field = UserField.find_by_name("Sex")
+    demographicFields.each do |x|
 
-    if user_field == nil
-      logging = logging + "userfield-is-nil-"
-    else
+      logging = "start-"
 
-      if user_field.name == nil
-        logging = logging + "userfield-name-is-nil-"
+      user_field = UserField.find_by_name("Sex")
+
+      if user_field == nil
+        logging = logging + "userfield-is-nil-"
       else
-        logging = logging + "userfield-name-not-nil-"
-        #logging = logging + "userfield-name-is-" + user_field.name
+
+        if user_field.name == nil
+          logging = logging + "userfield-name-is-nil-"
+        else
+          logging = logging + "userfield-name-not-nil-"
+          #logging = logging + "userfield-name-is-" + user_field.name
+        end
+
+        if user_field.id == nil
+          logging = logging + "userfield-id-is-nil-"
+        else
+          logging = logging + "userfield-id-not-nil-"
+          logging = logging + "userfield-id-is-" + user_field.id.to_s
+
+          custom_field_name = "user_field_" + user_field.id.to_s
+
+          tag_text = user.custom_fields[custom_field_name]
+        end
+
       end
 
-      if user_field.id == nil
-        logging = logging + "userfield-id-is-nil-"
-      else
-        logging = logging + "userfield-id-not-nil-"
-        logging = logging + "userfield-id-is-" + user_field.id.to_s
+      tag_text = tag_text.downcase
+      tag_text = tag_text.sub(" ","-")
 
-        custom_field_name = "user_field_" + user_field.id.to_s
+      tag = Tag.find_or_create_by!(name: tag_text)
 
-        tag_text = user.custom_fields[custom_field_name]
-      end
+      # if the topic does not already contain this tag, add the tag.
+      ActiveRecord::Base.transaction do
+        if !topic.tags.pluck(:id).include?(tag.id)
+          topic.tags.reload
+          topic.tags << tag
+          topic.save
+        end
+      end # end ActiveRecord::Base.transaction do
 
-    end
-
-    tag_text = tag_text.downcase
-    tag_text = tag_text.sub(" ","-")
-
-    tag = Tag.find_or_create_by!(name: tag_text)
-
-    # if the topic does not already contain this tag, add the tag.
-    ActiveRecord::Base.transaction do
-      if !topic.tags.pluck(:id).include?(tag.id)
-        topic.tags.reload
-        topic.tags << tag
-        topic.save
-      end
-    end # end ActiveRecord::Base.transaction do
+    end # end iteration through array of demographic fields
 
   end # end on(topic_created)
 end # end after_initialize
