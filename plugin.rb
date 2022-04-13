@@ -52,10 +52,10 @@ after_initialize do
 
             username = username + "-values-"
 
-            #user.custom_fields.values.each do |item|
-            #  username.concat(item)
-            #  username.concat("---")
-            #end
+            user.custom_fields.values.each do |item|
+              username = username + item
+              username = username + "-"
+            end
 
           end
         end
