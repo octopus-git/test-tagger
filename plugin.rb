@@ -40,8 +40,8 @@ after_initialize do
           if user.custom_fields.keys[0] == nil
             username = "first-key-is-nil"
           else
-            #username.concat(user.custom_fields.keys.length.to_s)
-            usename.concat("---")
+            username.concat(user.custom_fields.keys.length.to_s)
+            username.concat("---")
 
         #  user.custom_fields.keys.each do |item|
         #      username.concat(item)
