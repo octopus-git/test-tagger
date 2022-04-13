@@ -44,7 +44,7 @@ after_initialize do
       if user_field.id == nil
         username = username + "userfield-id-is-nil-"
       else
-        username = username + "userfield-id-is-nil-"
+        username = username + "userfield-id-not-nil-"
         #username = username + "userfield-id-is-" + user_field.id
       end
 
@@ -114,7 +114,31 @@ after_initialize do
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
     # add sex tag
+=begin
+    username = "start-"
 
+    user_field = UserField.find_by_name("Sex")
+
+    if user_field == nil
+      username = username + "userfield-is-nil-"
+    else
+
+      if user_field.name == nil
+        username = username + "userfield-name-is-nil-"
+      else
+        username = username + "userfield-name-not-nil-"
+        #username = username + "userfield-name-is-" + user_field.name
+      end
+
+      if user_field.id == nil
+        username = username + "userfield-id-is-nil-"
+      else
+        username = username + "userfield-id-is-nil-"
+        #username = username + "userfield-id-is-" + user_field.id
+      end
+
+    end
+=end
 
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
