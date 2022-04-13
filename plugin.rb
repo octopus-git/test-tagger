@@ -31,7 +31,11 @@ after_initialize do
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
     else
-        username = user.custom_fields.keys[1]
+      if user.custom_fields.keys == nil
+        username = "keys-is-nil"
+      else
+        username = "keys-is-not-nil"
+      end
     end
 
     username = username.sub(" ","xxxx")
