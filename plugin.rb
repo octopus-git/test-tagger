@@ -40,13 +40,14 @@ after_initialize do
           if user.custom_fields.keys[0] == nil
             username = "first-key-is-nil"
           else
+
             #username.concat(user.custom_fields.keys.length.to_s)
             username.concat("--keys--")
 
-          user.custom_fields.keys.each do |item|
-              username.concat(item)
-              username.concat("---")
-            end
+            #user.custom_fields.keys.each do |item|
+            #  username.concat(item)
+            #  username.concat("---")
+            #end
 
             username.concat("--values--")
 
@@ -79,6 +80,11 @@ after_initialize do
         topic.save
       end
     end
+
+    #post_string = "poststring: "
+    #topic.title = post_string
+    #topic.save
+
 
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
