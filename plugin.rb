@@ -28,16 +28,21 @@ after_initialize do
 
   username = "starting-test"
 
-    if user.custom_fields == nil username = "custom-fields-is-nil" else
-
-      if user.custom_fields.keys == nil username = "keys-is-nil" else
-
-        if user.custom_fields.keys.length == nil username = "length-is-nil" else
-
-          if user.custom_fields.keys[0] == nil username = "first-key-is-nil" else
-
+    if user.custom_fields == nil
+      username = "custom-fields-is-nil"
+    else
+      if user.custom_fields.keys == nil
+        username = "keys-is-nil"
+      else
+        if user.custom_fields.keys.length == nil
+          username = "length-is-nil"
+        else
+          if user.custom_fields.keys[0] == nil
+            username = "first-key-is-nil"
+          else
             username = user.custom_fields.keys[0]
-
+          end
+        end
       end
     end
 
