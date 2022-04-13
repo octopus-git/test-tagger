@@ -42,7 +42,7 @@ after_initialize do
           else
 
             username = "passed-nil-checks"
-            username.concat("-adding-something")
+            username = username + "-adding-something"
             #username.concat(user.custom_fields.keys.length.to_s)
             #username.concat("--keys--")
 
