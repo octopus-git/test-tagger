@@ -45,7 +45,7 @@ after_initialize do
         username = username + "userfield-id-is-nil-"
       else
         username = username + "userfield-id-not-nil-"
-        #username = username + "userfield-id-is-" + user_field.id
+        username = username + "userfield-id-is-" + user_field.id.to_s
       end
 
     end
