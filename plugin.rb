@@ -33,28 +33,22 @@ after_initialize do
     if user_field == nil
       username = username + "userfield-is-nil-"
     else
-      username = username + "userfield-is-not-nil-"
-    end
-
-=begin
-    if user_field == nil
-      username = username + "userfield-is-nil-"
-    else
 
       if user_field.name == nil
         username = username + "userfield-name-is-nil-"
       else
-        username = username + "userfield-name-is-" + user_field.name
+        username = username + "userfield-name-not-nil-"
+        #username = username + "userfield-name-is-" + user_field.name
       end
 
       if user_field.id == nil
         username = username + "userfield-id-is-nil-"
       else
-        username = username + "userfield-id-is-" + user_field.id
+        username = username + "userfield-id-is-nil-"
+        #username = username + "userfield-id-is-" + user_field.id
       end
 
     end
-=end
 
 =begin
     if user.custom_fields == nil
