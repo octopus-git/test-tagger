@@ -68,7 +68,7 @@ after_initialize do
     # username = user.custom_fields['sexual_orientation']
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
-  tag = Tag.find_or_create_by!(name: username)
+  tag = Tag.find_or_create_by!(name: "placeholder-tag")
 
     ActiveRecord::Base.transaction do
       #topic = post.topic
