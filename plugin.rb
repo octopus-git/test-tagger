@@ -12,6 +12,8 @@
 # assets/javascripts/connectors... related to a button I don't need
 
 # to do: change from post_created to topic_created
+
+
 after_initialize do
   DiscourseEvent.on(:topic_created) do |topic, _, user|
     next if SiteSetting.test_tag.blank?
@@ -29,12 +31,11 @@ after_initialize do
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
     else
-      if user.custom_fields['sexual_orientation'] == nil
-        username = "sexual-orientation-is-nil"
-      else
-        username = "sexual-orientation-not-nil"
-      end
+        username = user.custom_fields.keys[1]
     end
+
+    username = username.sub(" ","xxxx")
+    username = username.sub("_","zzzz")
 
     #username = user.user_fields.name
     #username = "testing-username-tag"
