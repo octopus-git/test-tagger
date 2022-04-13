@@ -28,6 +28,7 @@ after_initialize do
 
     username = "start---"
 
+=begin
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
     else
@@ -61,6 +62,7 @@ after_initialize do
         end
       end
     end # end four nil checks
+=end
 
     username = username.downcase
     username = username.sub(" ","xxxx")
