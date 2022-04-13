@@ -26,8 +26,7 @@ after_initialize do
 # ----------------------------------------------------------------------
 # add tags for demographic fields.
 
-    #demographicFields = ["Sex", "Sexual Orientation", "Transition History", "Generation"]
-    demographicFields = ["Sex", "Sexual Orientation"]
+    demographicFields = ["Sex", "Sexual Orientation", "Transition History", "Generation"]
 
     demographicFields.each do |x|
 
