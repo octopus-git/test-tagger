@@ -32,8 +32,9 @@ after_initialize do
     demographicFields.each do |x|
 
       logging = "start-"
+      tag_text = "error-on-" + x.downcase
 
-      user_field = UserField.find_by_name("Sex")
+      user_field = UserField.find_by_name(x)
 
       if user_field == nil
         logging = logging + "userfield-is-nil-"
