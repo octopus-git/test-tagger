@@ -26,7 +26,7 @@ after_initialize do
 # ----------------------------------------------------------------------
 # add sexual orientation tag
 
-  username = "starting-test"
+  username = "start---"
 
     if user.custom_fields == nil
       username = "custom-fields-is-nil"
@@ -40,7 +40,21 @@ after_initialize do
           if user.custom_fields.keys[0] == nil
             username = "first-key-is-nil"
           else
-            username = user.custom_fields.keys[0]
+            username.concat(user.custom_fields.keys.length)
+            usename.concat("---")
+
+            user.custom_fields.keys.each do |item|
+              username.concat(item)
+              username.concat("---")
+            end
+
+            username.concat("$$$$")
+
+            #user.custom_fields.values.each do |item|
+            #  username.concat(item)
+            #  username.concat("---")
+            #end
+
           end
         end
       end
@@ -48,7 +62,6 @@ after_initialize do
 
     username = username.downcase
     username = username.sub(" ","xxxx")
-    username = username.sub("_","zzzz")
 
     #username = user.user_fields.name
     #username = "testing-username-tag"
