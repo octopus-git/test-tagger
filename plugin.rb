@@ -41,17 +41,16 @@ after_initialize do
             username = "first-key-is-nil"
           else
 
-            username = "passed-nil-checks"
-            username = username + "-adding-something"
-            #username.concat(user.custom_fields.keys.length.to_s)
-            #username.concat("--keys--")
+            username = "passed-nil-checks-"
+            #username = username + user.custom_fields.keys.length.to_s
+            username = username + "-keys-"
 
             #user.custom_fields.keys.each do |item|
             #  username.concat(item)
             #  username.concat("---")
             #end
 
-            #username.concat("--values--")
+            username = username + "-values-"
 
             #user.custom_fields.values.each do |item|
             #  username.concat(item)
@@ -71,7 +70,7 @@ after_initialize do
     # username = user.custom_fields['sexual_orientation']
 
   #  tag = Tag.find_or_create_by!(name: SiteSetting.test_tag)
-    tag = Tag.find_or_create_by!(name: "placeholder-tag")
+    tag = Tag.find_or_create_by!(name: username)
 
     ActiveRecord::Base.transaction do
       #topic = post.topic
